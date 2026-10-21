@@ -1,0 +1,67 @@
+/* BASE.CSS */
+/* Globala grundregler för hela webbplatsen */
+/* Variabler, reset, body och grundstilar */
+
+:root {
+  --color-background: #ffffff;
+  --color-text-primary: #42446e;
+  --color-text-secondary: #666666;
+  --color-text-light: #767676;
+
+  --color-primary: #00c0fd;
+  --color-secondary: #e70faa;
+  --gradient-primary: linear-gradient(90deg, #00c0fd, #e70faa);
+
+  --color-card: #ffffff;
+  --color-border: #cccccc;
+  --color-focus: #005fcc;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 4px;
+}
+
+h1,
+h2,
+h4,
+h5 {
+  color: var(--color-text-primary);
+}
+
+h3 {
+  color: var(--color-text-secondary);
+}
+
+p,
+.article-icon {
+  color: var(--color-text-light);
+}
+
+/* DARK MODE */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: #191919;
+    --color-text-primary: #ffffff;
+    --color-text-secondary: #cccccc;
+    --color-text-light: #a7a7a7;
+    --color-primary: #00c0fd;
+    --color-secondary: #e70faa;
+    --gradient-primary: linear-gradient(90deg, #00c0fd, #e70faa);
+    --color-card: #363636;
+    --color-border: #444444;
+    --color-focus: #79caff;
+  }
+
+  .article-icon,
+  .social-nav img {
+    filter: brightness(0) invert(77%);
+  }
+}
