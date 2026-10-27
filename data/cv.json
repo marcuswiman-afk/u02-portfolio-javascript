@@ -1,7 +1,48 @@
 {
   "workExperience": [
     {
-      "title": "UX Designer"
+      "title": "Assistance Coordinator",
+      "employmentType": "Part Time",
+      "company": "SOS International",
+      "cityCountry": "Stockholm, Sweden",
+      "date": "Aug 2024 - Now"
+    },
+    {
+      "title": "Freelance Musician",
+      "employmentType": "Freelance",
+      "company": "Marcus Wiman",
+      "cityCountry": "Stockholm, Sweden",
+      "date": "May 2022 - Now"
+    },
+    {
+      "title": "UX Designer",
+      "employmentType": "Internship",
+      "company": "Flowscape Soulutions AB",
+      "cityCountry": "Stockholm, Sweden",
+      "date": "Dec 2025 - May 2026"
+    }
+  ],
+  "education": [
+    {
+      "title": "Fullstack Developer Javascript",
+      "educationType": "Full Time",
+      "School": "Chas Academy",
+      "cityCountry": "Stockholm, Sweden",
+      "date": "Aug 2026 - Now"
+    },
+    {
+      "title": "UX designer",
+      "educationType": "Full Time",
+      "School": "Nackademin",
+      "cityCountry": "Stockholm, Sweden",
+      "date": "Aug 2024 - June 2026"
+    },
+    {
+      "title": "Musician",
+      "educationType": "Full Time",
+      "School": "Bromma Folkhögskola",
+      "cityCountry": "Bromma, Sweden",
+      "date": "Aug 2021 - June 2022"
     }
   ]
 }
