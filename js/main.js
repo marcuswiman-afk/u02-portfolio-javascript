@@ -16,10 +16,16 @@ async function loadCV() {
   // Skapar en ny h3 som är tom (createelement)
   //Valde istället querySelector då det finns i HTML redan
   const heading = document.querySelector("#work-list h3");
+  const pill = document.querySelector("#work-list .pill-tag");
+  const company = document.querySelector("#work-list .company");
+  const cityCountry = document.querySelector("#work-list .cityCountry");
+  const date = document.querySelector("#work-list .date");
   // Ger den tomma h3an innehåll
   heading.textContent = data.workExperience[0].title;
-  heading.textContent = data.workExperience[1].title;
-  heading.textContent = data.workExperience[2].title;
+  pill.textContent = data.workExperience[0].employementType;
+  company.textContent = data.workExperience[0].company;
+  cityCountry.textContent = data.workExperience[0].cityCountry;
+  date.textContent = data.workExperience[0].date;
   // Lägg in den i HTML
   // workList.append(heading);
 
