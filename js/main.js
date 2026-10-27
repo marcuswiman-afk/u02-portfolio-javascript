@@ -10,9 +10,16 @@ async function loadCV() {
   //Svarets JSON-innehåll görs om till JavaScript-data.
   const data = await response.json();
 
+  const workList = document.querySelector("#work-list");
+  const educationList = document.querySelector("#education-list");
+
   //Console.loggar ut workExperience från json filen.
   console.log(data.workExperience);
   console.log(data.education);
+  console.log(data.education[0].title);
+  console.log(workList);
 }
 
 loadCV();
+
+// Hämtar hem IDn för work-experience samt education genom DOMen. Detta är då IDs som ligger i html
