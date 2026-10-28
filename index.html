@@ -20,7 +20,18 @@
     <header class="main-header">
       <div class="header-top">
         <a href="/index.html">
-          <img class="logo" src="/img/logo-1.svg" alt="007 Pavang Logo" />
+          <picture>
+            <source
+              srcset="/img/mw_header_logo_2.svg"
+              media="(prefers-color-scheme:
+            light)"
+            />
+            <img
+              class="logo"
+              src="/img/mw_header_logo_white 2.svg"
+              alt="007 Pavang Logo"
+            />
+          </picture>
         </a>
 
         <!-- hamburgaremeny -->
@@ -70,13 +81,13 @@
         <h1 class="hero-header">
           Hi 👋🏻 <br />
           My Name is <br />
-          <span class="primary-gradient">Pavan MG</span> <br />
-          I build things for web
+          <span class="primary-gradient">Marcus Wiman</span> <br />
+          I build and design things for web
         </h1>
         <img
           class="hero-picture"
-          src="/img/Pavan.svg"
-          alt="A picture of Pavan"
+          src="/img/profile_picture.png"
+          alt="A picture of Marcus"
         />
       </section>
 
@@ -86,10 +97,12 @@
           <!-- About Me -->
           <h2>About Me</h2>
           <p>
-            The Generator App is an online tool that helps you to export
-            ready-made templates ready to work as your future website. It helps
-            you to combine slides, panels and other components and export it as
-            a set of static files: HTML/CSS/JS.
+            I'm a UX designer currently studying Fullstack JavaScript, combining
+            my passion for user-centered design with web development. I enjoy
+            creating intuitive, accessible, and visually engaging digital
+            experiences. With a background in UX research and interaction
+            design, I'm expanding my technical skills to bridge the gap between
+            design and development.
           </p>
         </div>
 
@@ -322,42 +335,44 @@
         </div>
         <!-- Kör grid här! -->
         <div class="projects-card-grid">
-          <article class="article-card-project">
-            <div class="article-content-project">
-              <img src="/img/project-1.jpg" alt="" />
-              <div class="article-details-project">
-                <h3>Project 1</h3>
-                <p>
-                  This is sample project description random things are here in
-                  description This is sample project lorem ipsum generator for
-                  dummy content
-                </p>
-                <p>
-                  <span class="article-text-bold">Tech stack</span> : HTML ,
-                  JavaScript, SASS, React
-                </p>
-                <div class="article-links">
-                  <ul>
-                    <li>
-                      <img
-                        class="article-icon"
-                        src="/img/akar-icons_link-chain.svg"
-                        alt="Link preview icon"
-                      /><a href="">Live Preview</a>
-                    </li>
-                    <li>
-                      <img
-                        class="article-icon"
-                        src="/img/akar-icons_github-fill.svg"
-                        alt="Github icon"
-                      /><a href="">View Code</a>
-                    </li>
-                  </ul>
+          <template id="project-template">
+            <article class="article-card-project">
+              <div class="article-content-project">
+                <img src="/img/project-1.jpg" alt="" />
+                <div class="article-details-project">
+                  <h3>Project 1</h3>
+                  <p>
+                    This is sample project description random things are here in
+                    description This is sample project lorem ipsum generator for
+                    dummy content
+                  </p>
+                  <p>
+                    <span class="article-text-bold">Tech stack</span> : HTML ,
+                    JavaScript, SASS, React
+                  </p>
+                  <div class="article-links">
+                    <ul>
+                      <li>
+                        <img
+                          class="article-icon"
+                          src="/img/akar-icons_link-chain.svg"
+                          alt="Link preview icon"
+                        /><a href="">Live Preview</a>
+                      </li>
+                      <li>
+                        <img
+                          class="article-icon"
+                          src="/img/akar-icons_github-fill.svg"
+                          alt="Github icon"
+                        /><a href="">View Code</a>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
               </div>
-            </div>
-          </article>
-          <article class="article-card-project">
+            </article>
+          </template>
+          <!-- <article class="article-card-project">
             <div class="article-content-project">
               <img src="/img/project-2.svg" alt="" />
               <div class="article-details-project">
@@ -535,7 +550,7 @@
                 </div>
               </div>
             </div>
-          </article>
+          </article> -->
         </div>
       </section>
     </main>

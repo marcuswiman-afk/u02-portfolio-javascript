@@ -5,6 +5,7 @@
 // Skapar en asynkron funktion som hämtar CV-information från JSON.
 // async gör att vi kan använda await inuti funktionen.
 
+// <!-- CV via JSON -->
 async function loadCV() {
   // fetch() begär filen cv.json från servern.
   // await pausar funktionen loadCV tills vi fått ett svar.
@@ -86,13 +87,21 @@ async function loadCV() {
 
 loadCV();
 
+// <!-- Github project via API -->
 async function loadProjects() {
   const response = await fetch(
     "https://api.github.com/users/marcuswiman-afk/repos"
   );
 
   const repos = await response.json();
-  console.log(repos);
+
+  // Hämtar template ID från Project kort 1
+  const projectTemplate = document.querySelector("#project-template");
+  const projectGrid = document.querySelector(".projects-card-grid");
+
+  const article = projectTemplate.content.firstElementChild.cloneNode(true);
+
+  console.log(article);
 }
 
 loadProjects();
