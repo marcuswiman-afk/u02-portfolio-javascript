@@ -93,27 +93,45 @@ async function loadProjects() {
     "https://api.github.com/users/marcuswiman-afk/repos"
   );
 
+  // Hämtar alla repos
   const repos = await response.json();
 
   // Hämtar template ID från Project kort 1
   const projectTemplate = document.querySelector("#project-template");
   const projectGrid = document.querySelector(".projects-card-grid");
 
-  const article = projectTemplate.content.firstElementChild.cloneNode(true);
+  repos.forEach((repo) => {
+    // Hämtar HTML-innehållet från projectTemplate.
+    // .content ger tillgång till innehållet i <template>.
+    // .firstElementChild väljer det första HTML-elementet (<article>).
+    // .cloneNode(true) skapar en kopia av hela kortet, inklusive alla element inuti.
+    // Kopian sparas i variabeln article och kan fyllas med GitHub-data.
+    const article = projectTemplate.content.firstElementChild.cloneNode(true);
 
-  repos.forEach((repo) {
+    const liveLink = article.querySelector(".live-link");
 
+    if (repo.homepage) {
+      liveLink.href = repo.homepage;
+    } else {
+      liveLink.closest("li").remove();
+    }
+
+    article.querySelector("h3").textContent = repo.name;
+    article.querySelector(".project-description").textContent =
+      repo.description;
+    article.querySelector(".project-tech-stack").textContent = repo.topics
+      .join(", ")
+      .toUpperCase();
+
+    article.querySelector(".repo-link").textContent = repo.html_url;
 
     // picture
     // h3
     // project-description
     // live-link
     // repo-link
-
-
-  })
-
-  console.log(article);
+    projectGrid.append(article);
+  });
 }
 
 loadProjects();
