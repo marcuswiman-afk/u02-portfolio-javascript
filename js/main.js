@@ -41,18 +41,6 @@ async function loadCV() {
 
   const educations = data.educations;
 
-  // const heading = document.querySelector("#work-list h3");
-  // const pill = document.querySelector("#work-list .pill-tag");
-  // const company = document.querySelector("#work-list .company");
-  // const cityCountry = document.querySelector("#work-list .cityCountry");
-  // const date = document.querySelector("#work-list .date");
-  // Ger den tomma h3an innehåll
-
-  // forEach() går igenom alla jobb i arrayen jobs, ett i taget.
-  // job är det aktuella objektet från JSON-filen.
-  // index är objektets position i arrayen (0, 1, 2 osv.).
-  // Koden inom { } körs en gång för varje jobb.
-
   // <!-- Work Experience -->
   jobs.forEach((job, index) => {
     // articles innehåller alla HTML-kort som vi hämtat med querySelectorAll().
@@ -94,36 +82,19 @@ async function loadCV() {
 
     educationList.append(article);
   });
-
-  // educations.forEach((education) => {
-  //   const article = document.createElement("article");
-  //   article.classList.add("article-content");
-
-  //   const articleTitle = document.createElement("div");
-  //   // Adderar från CSS
-  //   articleTitle.classList.add("article-title");
-
-  //   const heading = document.createElement("h3");
-  //   heading.textContent = education.title;
-
-  //   const pill = document.createElement("span");
-  //   pill.textContent = education.educationType;
-  //   pill.classList.add("pill-tag");
-
-  //   articleTitle.append(heading, pill);
-  //   educationList.append(articleTitle);
-  //   educationList.append(article);
-  // });
-
-  // heading.textContent = data.workExperience[0].title)
-  // pill.textContent = data.workExperience[0].employementType;
-  // company.textContent = data.workExperience[0].company;
-  // cityCountry.textContent = data.workExperience[0].cityCountry;
-  // date.textContent = data.workExperience[0].date;
-  // Lägg in den i HTML
-  // workList.append(heading);
 }
 
 loadCV();
+
+async function loadProjects() {
+  const response = await fetch(
+    "https://api.github.com/users/marcuswiman-afk/repos"
+  );
+
+  const repos = await response.json();
+  console.log(repos);
+}
+
+loadProjects();
 
 // Hämtar hem IDn för work-experience samt education genom DOMen. Detta är då IDs som ligger i html
