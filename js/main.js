@@ -81,8 +81,23 @@ async function loadCV() {
   });
 
   // <!-- Education -->
-  educations.forEach((education, index) => {
+  educations.forEach((education) => {
     const article = document.createElement("article");
+    article.classList.add("article-content");
+
+    const articleTitle = document.createElement("div");
+    articleTitle.classList.add("article-title");
+
+    const heading = document.createElement("h3");
+    heading.textContent = education.title;
+
+    const pill = document.createElement("span");
+    pill.textContent = education.educationType;
+    pill.classList.add("pill-tag");
+
+    articleTitle.append(heading, pill);
+    educationList.append(articleTitle);
+    educationList.append(article);
   });
 
   // heading.textContent = data.workExperience[0].title)
