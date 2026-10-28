@@ -143,5 +143,15 @@ async function loadProjects() {
 
 loadProjects();
 
-document.documentElement.classList.toggle("dark");
+const themeButton = document.querySelector("#theme-toggle");
+const logo = document.querySelector(".logo");
+
+themeButton.addEventListener("click", () => {
+  const isDark = document.documentElement.classList.toggle("dark");
+
+  logo.src = isDark
+    ? "/img/mw_header_logo_white_2.svg"
+    : "/img/mw_header_logo_2.svg";
+});
+
 // Hämtar hem IDn för work-experience samt education genom DOMen. Detta är då IDs som ligger i html
