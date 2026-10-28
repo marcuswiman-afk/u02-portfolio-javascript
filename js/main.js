@@ -100,14 +100,20 @@ async function loadProjects() {
   const projectTemplate = document.querySelector("#project-template");
   const projectGrid = document.querySelector(".projects-card-grid");
 
-  repos.forEach((repo) => {
+  const projectImages = {
+    "u02-portfolio-javascript": "/img/project-1.jpg",
+    "u01---Individuell-uppgift": "/img/project-2.svg",
+    "intro-html": "/img/project-3.svg",
+    "html-intro-260915": "/img/project-4.svg",
+  };
+
+  repos.reverse().forEach((repo) => {
     // Hämtar HTML-innehållet från projectTemplate.
     // .content ger tillgång till innehållet i <template>.
     // .firstElementChild väljer det första HTML-elementet (<article>).
     // .cloneNode(true) skapar en kopia av hela kortet, inklusive alla element inuti.
     // Kopian sparas i variabeln article och kan fyllas med GitHub-data.
     const article = projectTemplate.content.firstElementChild.cloneNode(true);
-
     const liveLink = article.querySelector(".live-link");
 
     if (repo.homepage) {
@@ -116,13 +122,14 @@ async function loadProjects() {
       liveLink.closest("li").remove();
     }
 
+    article.querySelector(".article-content-project > img").src =
+      projectImages[repo.name] ?? "/img/project-6.svg";
     article.querySelector("h3").textContent = repo.name;
     article.querySelector(".project-description").textContent =
       repo.description;
     article.querySelector(".project-tech-stack").textContent = `: ${repo.topics
       .join(", ")
       .toUpperCase()}`;
-
     article.querySelector(".repo-link").href = repo.html_url;
 
     // picture
