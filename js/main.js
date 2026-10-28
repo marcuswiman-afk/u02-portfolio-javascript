@@ -101,6 +101,18 @@ async function loadProjects() {
 
   const article = projectTemplate.content.firstElementChild.cloneNode(true);
 
+  repos.forEach((repo) {
+
+
+    // picture
+    // h3
+    // project-description
+    // live-link
+    // repo-link
+
+
+  })
+
   console.log(article);
 }
 
