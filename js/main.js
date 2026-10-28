@@ -119,11 +119,11 @@ async function loadProjects() {
     article.querySelector("h3").textContent = repo.name;
     article.querySelector(".project-description").textContent =
       repo.description;
-    article.querySelector(".project-tech-stack").textContent = repo.topics
+    article.querySelector(".project-tech-stack").textContent = `: ${repo.topics
       .join(", ")
-      .toUpperCase();
+      .toUpperCase()}`;
 
-    article.querySelector(".repo-link").textContent = repo.html_url;
+    article.querySelector(".repo-link").href = repo.html_url;
 
     // picture
     // h3
