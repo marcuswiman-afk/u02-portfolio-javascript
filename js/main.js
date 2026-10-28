@@ -4,6 +4,7 @@
 
 // Skapar en asynkron funktion som hämtar CV-information från JSON.
 // async gör att vi kan använda await inuti funktionen.
+
 async function loadCV() {
   // fetch() begär filen cv.json från servern.
   // await pausar funktionen loadCV tills vi fått ett svar.
@@ -28,11 +29,15 @@ async function loadCV() {
   // Hittar det första HTML-elementet med klassen "article-content" i DOM:en.
   // Sparar en referens till elementet i variabeln article.
   // const article = document.querySelector(".article-content");
-  const articles = workList.querySelectorAll(".article-content");
+  const articlesWork = workList.querySelectorAll(".article-content");
+
+  const articlesEducation = educationList.querySelectorAll(".article-content");
 
   // Hämtar det första objektet (index 0) från arrayen workExperience i JSON-datan.
   // Sparar objektet i variabeln job, så att vi enklare kan använda t.ex. job.title.
   const jobs = data.workExperience;
+
+  const educations = data.educations;
 
   // const heading = document.querySelector("#work-list h3");
   // const pill = document.querySelector("#work-list .pill-tag");
@@ -45,12 +50,14 @@ async function loadCV() {
   // job är det aktuella objektet från JSON-filen.
   // index är objektets position i arrayen (0, 1, 2 osv.).
   // Koden inom { } körs en gång för varje jobb.
+
+  // <!-- Work Experience -->
   jobs.forEach((job, index) => {
     // articles innehåller alla HTML-kort som vi hämtat med querySelectorAll().
     // articles[index] väljer det HTML-kort som har samma position som jobbet.
     // Referensen sparas i variabeln article.
     // Därmed kopplas rätt jobb från JSON till rätt HTML-kort.
-    const article = articles[index];
+    const article = articlesWork[index];
 
     // Hittar h3-rubriken inuti article och ersätter texten
     // med jobbtiteln från JSON-objektet.
@@ -71,8 +78,11 @@ async function loadCV() {
     // Hittar elementet med klassen "date" inuti article
     // och ersätter texten med anställningsperioden från JSON.
     article.querySelector(".date").textContent = job.date;
+  });
 
-    console.log(jobs);
+  // <!-- Education -->
+  educations.forEach((education, index) => {
+    const article = document.createElement("article");
   });
 
   // heading.textContent = data.workExperience[0].title)
