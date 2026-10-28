@@ -23,6 +23,8 @@ async function loadCV() {
   // Gör samma sak för HTML-elementet med ID "education-list".
   const educationList = document.querySelector("#education-list");
 
+  const template = document.querySelector("#education-template");
+
   // Skapar en ny h3 som är tom (createelement)
   //Valde istället querySelector istället för createelement då det finns i HTML redan
 
@@ -31,7 +33,7 @@ async function loadCV() {
   // const article = document.querySelector(".article-content");
   const articlesWork = workList.querySelectorAll(".article-content");
 
-  const articlesEducation = educationList.querySelectorAll(".article-content");
+  // const articlesEducation = educationList.querySelectorAll(".article-content");
 
   // Hämtar det första objektet (index 0) från arrayen workExperience i JSON-datan.
   // Sparar objektet i variabeln job, så att vi enklare kan använda t.ex. job.title.
@@ -82,23 +84,36 @@ async function loadCV() {
 
   // <!-- Education -->
   educations.forEach((education) => {
-    const article = document.createElement("article");
-    article.classList.add("article-content");
+    const article = template.content.firstElementChild.cloneNode(true);
 
-    const articleTitle = document.createElement("div");
-    articleTitle.classList.add("article-title");
+    article.querySelector("h3").textContent = education.title;
+    article.querySelector(".pill-tag").textContent = education.educationType;
+    article.querySelector(".company").textContent = education.School;
+    article.querySelector(".cityCountry").textContent = education.cityCountry;
+    article.querySelector(".date").textContent = education.date;
 
-    const heading = document.createElement("h3");
-    heading.textContent = education.title;
-
-    const pill = document.createElement("span");
-    pill.textContent = education.educationType;
-    pill.classList.add("pill-tag");
-
-    articleTitle.append(heading, pill);
-    educationList.append(articleTitle);
     educationList.append(article);
   });
+
+  // educations.forEach((education) => {
+  //   const article = document.createElement("article");
+  //   article.classList.add("article-content");
+
+  //   const articleTitle = document.createElement("div");
+  //   // Adderar från CSS
+  //   articleTitle.classList.add("article-title");
+
+  //   const heading = document.createElement("h3");
+  //   heading.textContent = education.title;
+
+  //   const pill = document.createElement("span");
+  //   pill.textContent = education.educationType;
+  //   pill.classList.add("pill-tag");
+
+  //   articleTitle.append(heading, pill);
+  //   educationList.append(articleTitle);
+  //   educationList.append(article);
+  // });
 
   // heading.textContent = data.workExperience[0].title)
   // pill.textContent = data.workExperience[0].employementType;
