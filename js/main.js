@@ -143,4 +143,5 @@ async function loadProjects() {
 
 loadProjects();
 
+document.documentElement.classList.toggle("dark");
 // Hämtar hem IDn för work-experience samt education genom DOMen. Detta är då IDs som ligger i html

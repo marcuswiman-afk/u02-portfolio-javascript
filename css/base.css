@@ -46,22 +46,20 @@ p,
 }
 
 /* DARK MODE */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-background: #191919;
-    --color-text-primary: #ffffff;
-    --color-text-secondary: #cccccc;
-    --color-text-light: #a7a7a7;
-    --color-primary: #00c0fd;
-    --color-secondary: #e70faa;
-    --gradient-primary: linear-gradient(90deg, #00c0fd, #e70faa);
-    --color-card: #363636;
-    --color-border: #444444;
-    --color-focus: #79caff;
-  }
+:root.dark {
+  --color-background: #191919;
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #cccccc;
+  --color-text-light: #a7a7a7;
+  --color-primary: #00c0fd;
+  --color-secondary: #e70faa;
+  --gradient-primary: linear-gradient(90deg, #00c0fd, #e70faa);
+  --color-card: #363636;
+  --color-border: #444444;
+  --color-focus: #79caff;
+}
 
-  .article-icon,
-  .social-nav img {
-    filter: brightness(0) invert(77%);
-  }
+:root.dark .article-icon,
+:root.dark .social-nav img {
+  filter: brightness(0) invert(77%);
 }
