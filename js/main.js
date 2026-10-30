@@ -144,10 +144,15 @@ async function loadProjects() {
 loadProjects();
 
 const themeButton = document.querySelector("#theme-toggle");
+const moon = document.querySelector(".moon");
 const logo = document.querySelector(".logo");
 
 themeButton.addEventListener("click", () => {
   const isDark = document.documentElement.classList.toggle("dark");
+
+  themeButton.src = isDark ? "/img/moon (1).svg" : "/img/sun.svg";
+
+  moon.src = isDark ? "/img/moon.svg" : "/img/moon (1).svg";
 
   logo.src = isDark
     ? "/img/mw_header_logo_white_2.svg"

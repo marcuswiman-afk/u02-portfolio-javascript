@@ -6,6 +6,15 @@ html {
   font-size: 62.5%;
 }
 
+html.dark .theme-toggle .sun {
+  background: transparent;
+}
+
+html.dark .theme-toggle .moon {
+  background: var(--color-background);
+  color: white;
+}
+
 body {
   font-family: "Poppins", sans-serif;
   background-color: var(--color-background);
@@ -42,6 +51,42 @@ h3 {
 
 .logo {
   width: 9.6rem;
+}
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px;
+
+  border: none;
+  border-radius: 50px;
+  background: #e8e8ed;
+  cursor: pointer;
+  padding: 0.3rem;
+}
+
+.theme-toggle span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+}
+
+.theme-toggle .sun {
+  padding: 0.6rem;
+  border-radius: 50%;
+  background: white;
+  color: #373753;
+}
+
+.theme-toggle .moon {
+  padding: 0.6rem;
+  border-radius: 50%;
+  color: #777785;
 }
 
 .menu-button {
@@ -230,6 +275,7 @@ hr {
 .designedby {
   display: flex;
   justify-content: center;
+  align-items: center;
   margin-top: 1rem;
 }
 /* Tech stack */
@@ -347,8 +393,13 @@ footer h4 {
   text-align: center;
 }
 
+footer span {
+  font-size: 1.4rem;
+  text-align: center;
+}
+
 .footer-paragraph {
-  margin: 1rem 0rem 0rem 0rem;
+  margin: 1rem 0rem 1rem 0rem;
 }
 
 .contacts {
