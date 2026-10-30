@@ -124,14 +124,13 @@ h3 {
 /* social-nav is the social links */
 
 .social-nav {
-  display: flex;
-  justify-content: center;
   margin-top: 1.6rem;
 }
 
 .social-nav ul {
   display: flex;
   flex-direction: row;
+  justify-content: center;
   align-items: center;
 }
 
@@ -143,6 +142,18 @@ h3 {
 .social-nav ul li a {
   display: flex;
   align-items: center;
+}
+
+/* Stäng som standard på mobil */
+.main-nav,
+.social-nav {
+  display: none;
+}
+
+/* Öppna efter ett klick */
+.main-header.menu-open .main-nav,
+.main-header.menu-open .social-nav {
+  display: block;
 }
 
 /* Hero */

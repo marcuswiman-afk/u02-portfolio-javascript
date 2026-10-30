@@ -143,7 +143,9 @@ async function loadProjects() {
 
 loadProjects();
 
+const header = document.querySelector(".main-header");
 const themeButton = document.querySelector("#theme-toggle");
+const menuButton = document.querySelector("#menu-button");
 const moon = document.querySelector(".moon");
 const logo = document.querySelector(".logo");
 
@@ -157,6 +159,12 @@ themeButton.addEventListener("click", () => {
   logo.src = isDark
     ? "/img/mw_header_logo_white_2.svg"
     : "/img/mw_header_logo_2.svg";
+});
+
+menuButton.addEventListener("click", () => {
+  const isOpen = header.classList.toggle("menu-open");
+
+  menuButton.setAttribute("aria-expanded", String(isOpen));
 });
 
 // Hämtar hem IDn för work-experience samt education genom DOMen. Detta är då IDs som ligger i html
