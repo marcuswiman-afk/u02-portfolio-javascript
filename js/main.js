@@ -89,6 +89,8 @@ loadCV();
 
 // <!-- Github project via API -->
 async function loadProjects() {
+  const projectstatus = document.querySelector("#projets-status");
+
   const response = await fetch(
     "https://api.github.com/users/marcuswiman-afk/repos"
   );
@@ -139,6 +141,8 @@ async function loadProjects() {
     // repo-link
     projectGrid.append(article);
   });
+  // Tar bort text när den laddat klart
+  projectstatus.textContent = "";
 }
 
 loadProjects();
@@ -149,6 +153,7 @@ const menuButton = document.querySelector("#menu-button");
 const moon = document.querySelector(".moon");
 const logo = document.querySelector(".logo");
 
+// Darkmode/lightmode
 themeButton.addEventListener("click", () => {
   const isDark = document.documentElement.classList.toggle("dark");
 
@@ -161,10 +166,9 @@ themeButton.addEventListener("click", () => {
     : "/img/mw_header_logo_2.svg";
 });
 
+// open/close menubutton
 menuButton.addEventListener("click", () => {
   const isOpen = header.classList.toggle("menu-open");
 
   menuButton.setAttribute("aria-expanded", String(isOpen));
 });
-
-// Hämtar hem IDn för work-experience samt education genom DOMen. Detta är då IDs som ligger i html
